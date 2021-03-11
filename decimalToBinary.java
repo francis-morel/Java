@@ -1,8 +1,8 @@
 public class decimalToBinary {
     
 
-    static String decimalToBinaryFN( double number){
-        String resultat = "0.";
+    static String decimalToBinaryDec( double number){
+        String resultat = "";
         double reste = number;
 
         for(int i = 0; i<1000; i++){
@@ -28,8 +28,30 @@ public class decimalToBinary {
         return resultat;
     }
 
-    public static void main(String[] args) {
+    static String decimalToBinaryWhole(double number){
+        String resultat = "";
+        int nombre = (int)number;
 
-        System.out.println(decimalToBinaryFN(Double.parseDouble(args[0])));
+        while (nombre > 1){
+            if (nombre % 2 == 0){
+                resultat = "0" + resultat;
+            }
+            else{
+                resultat = "1" + resultat;
+            }
+            nombre /= 2;
+        }
+        return "1" + resultat;
+    }
+
+    public static void main(String[] args) {
+        String[] separe = args[0].split("\\.");
+        for(String i : separe){
+            System.out.println(i);
+        }
+        String whole = decimalToBinaryWhole(Double.parseDouble(separe[0]));
+        String decimal = decimalToBinaryDec(Double.parseDouble("0." + separe[1]));
+        
+        System.out.println(whole + "." + decimal);
     }
 }
