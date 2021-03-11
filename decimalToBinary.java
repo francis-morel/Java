@@ -46,9 +46,7 @@ public class decimalToBinary {
 
     public static void main(String[] args) {
         String[] separe = args[0].split("\\.");
-        for(String i : separe){
-            System.out.println(i);
-        }
+
         String whole = decimalToBinaryWhole(Double.parseDouble(separe[0]));
         String decimal = decimalToBinaryDec(Double.parseDouble("0." + separe[1]));
         
