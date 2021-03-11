@@ -27,7 +27,7 @@ public class BinaryToHexa {
 
 
     public static void main(String[] args){
-        String binary = "1110111011101";
+        String binary = args[0];
         String binaryCorrected = correctLeadingBinary(binary);
         String hexaReturn = "";
 
