@@ -1,14 +1,13 @@
 import java.util.Scanner;
 
-public class PratiqueScanner {
-    
+class PratiqueScanner {
 
     public static void main(String args[]) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Veuillez entrer un nombre: ");
+        System.out.print("Veuillez entrer un nombre entier: ");
+        Scanner test = new Scanner(System.in);
 
-        int retour = input.nextInt();
-        System.out.println(retour);
-        input.close();
+        int input = test.nextInt();
+
+        System.out.println(input);
     }
 }
