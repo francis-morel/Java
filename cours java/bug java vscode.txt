@@ -1,0 +1,2 @@
+Pour régler le bug d'execution de code:
+F1 -> Clean the java language server workspace
