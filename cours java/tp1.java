@@ -22,8 +22,8 @@ public class tp1{
         catch( Exception e) {
             System.out.println(e);
         }
-
-
+        
+        
         return true;
     }
 
@@ -41,7 +41,7 @@ public class tp1{
             //si le premier chiffre n'est pas 3, retourner 0%
             //Le premier chiffre après la virgule vaut 80% de rendement
             //Les chiffres suivants ont de moins en moins de valeur
-            /*
+            
             if(valueArray[0] != '3'){
                 return 0.0f;
             }
@@ -51,10 +51,8 @@ public class tp1{
                     rendement += 1.0f;
                 }
             }
-            */
-            System.out.print(valueArray[i]);
+            
         }
-        System.out.print('\n');
         
         rendement = rendement/10.0f*100.0f;
 
