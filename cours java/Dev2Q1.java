@@ -7,7 +7,7 @@ public class Dev2Q1 {
         total = total + terme;
             System.out.println(total);
             terme = terme / 100; 
-            System.out.println(terme);
+            //System.out.println(terme);
         }
     }
 }    

@@ -72,11 +72,20 @@ public class tp1{
 
         scan.close();
 
-        float rendement = rendementPi(piValue);
+        //float rendement = rendementPi(piValue);
+        double rendement = ecartType(piValue);
 
-        System.out.println(rendement);
+        System.out.println(Math.PI);
+        System.out.println(Math.round(rendement*10)/10.0 + "%");
                
 
 
+    }
+
+    public static double ecartType(double valeur){
+        valeur -= 3.0;
+        double pi = Math.PI -3.0;
+        double rendement = (valeur-pi)/pi*100;
+        return 100 - Math.sqrt(rendement * rendement);
     }
 }
