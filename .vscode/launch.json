@@ -1,0 +1,266 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice11",
+            "request": "launch",
+            "mainClass": "exercice11.C04CExercice11",
+            "projectName": "C04CExercice11"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice13",
+            "request": "launch",
+            "mainClass": "exercice13.C04CExercice13",
+            "projectName": "C04CExercice13"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice14",
+            "request": "launch",
+            "mainClass": "exercice14.C04CExercice14",
+            "projectName": "C04CExercice14"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice15",
+            "request": "launch",
+            "mainClass": "exercice15.C04CExercice15",
+            "projectName": "C04CExercice15"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev3Q1",
+            "request": "launch",
+            "mainClass": "dev3_q1.Dev3Q1",
+            "projectName": "Dev3Q1"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev3Q2",
+            "request": "launch",
+            "mainClass": "dev3q2.Dev3Q2",
+            "projectName": "Dev3Q2"
+        },
+        {
+            "type": "java",
+            "name": "Launch BinaryToHexa",
+            "request": "launch",
+            "mainClass": "BinaryToHexa",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch BinaryToOctal",
+            "request": "launch",
+            "mainClass": "BinaryToOctal",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04AExercice5",
+            "request": "launch",
+            "mainClass": "Cours04AExercice5",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04BExercice11",
+            "request": "launch",
+            "mainClass": "Cours04BExercice11",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04BExercice13",
+            "request": "launch",
+            "mainClass": "Cours04BExercice13",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04BExercice14",
+            "request": "launch",
+            "mainClass": "Cours04BExercice14",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04BExercice3",
+            "request": "launch",
+            "mainClass": "Cours04BExercice3",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04CExercice5",
+            "request": "launch",
+            "mainClass": "Cours04CExercice5",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04CExercice6",
+            "request": "launch",
+            "mainClass": "Cours04CExercice6",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04CExercice7",
+            "request": "launch",
+            "mainClass": "Cours04CExercice7",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours04EExercice6",
+            "request": "launch",
+            "mainClass": "Cours04EExercice6",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours3Exercice3",
+            "request": "launch",
+            "mainClass": "Cours3Exercice3",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours3Exercice4",
+            "request": "launch",
+            "mainClass": "Cours3Exercice4",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Cours3Exercice5",
+            "request": "launch",
+            "mainClass": "Cours3Exercice5",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev2Q1",
+            "request": "launch",
+            "mainClass": "Dev2Q1",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev2Q2",
+            "request": "launch",
+            "mainClass": "Dev2Q2",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev2Q3",
+            "request": "launch",
+            "mainClass": "Dev2Q3",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice11(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.C04CExercice11.src.exercice11.C04CExercice11",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice13(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.C04CExercice13.src.exercice13.C04CExercice13",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice14(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.C04CExercice14.src.exercice14.C04CExercice14",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch C04CExercice15(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.C04CExercice15.src.exercice15.C04CExercice15",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev3Q1(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.Dev3Q1.src.dev3_q1.Dev3Q1",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Dev3Q2(1)",
+            "request": "launch",
+            "mainClass": "Eclipse.Dev3Q2.src.dev3q2.Dev3Q2",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch Factorial",
+            "request": "launch",
+            "mainClass": "Factorial",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch HelloWorldApp",
+            "request": "launch",
+            "mainClass": "HelloWorldApp",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch PileFace",
+            "request": "launch",
+            "mainClass": "PileFace",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch PratiqueScanner",
+            "request": "launch",
+            "mainClass": "PratiqueScanner",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestMath",
+            "request": "launch",
+            "mainClass": "TestMath",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch decimalToBinary",
+            "request": "launch",
+            "mainClass": "decimalToBinary",
+            "projectName": "Java_bff03bca"
+        },
+        {
+            "type": "java",
+            "name": "Launch tp1",
+            "request": "launch",
+            "mainClass": "tp1",
+            "projectName": "Java_bff03bca"
+        }
+    ]
+}

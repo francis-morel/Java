@@ -34,5 +34,7 @@ public class C04CExercice14 {
 			}
 			System.out.print("\n");
 		}
+		
+		scanner.close();
 	}
 }

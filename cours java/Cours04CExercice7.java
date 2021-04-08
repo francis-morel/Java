@@ -4,8 +4,8 @@ public class Cours04CExercice7 {
         System.out.println(Math.exp(1));
 
         double demo = 0.0;
-        for(int i = 0; i < VALEUR; i++) {
-            demo += 1.0/factorielle(i);
+        for(int n = 0; n < VALEUR; n++) {
+            demo += 1.0/factorielle(n);
         }
         System.out.println(demo);
     }
