@@ -27,6 +27,6 @@ public class Dev5Q1 {
                 }
             }
         }
-        return false; //Q1a. le code ne compile pas parce que la fonction ne retournait rien si la valeur n'est pas valide et voici la correction.
+        return false; //Q1a. le code ne compile pas parce que la fonction ne retournait rien si la valeur n'est pas "valide" et voici la correction.
     }
 }
