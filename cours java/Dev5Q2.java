@@ -19,7 +19,7 @@ public class Dev5Q2 {
         int valeur = -1;
 
         do {
-            System.out.print("Entrez un entier " + nom + "entre 1 et 20 : ");
+            System.out.print("Entrez un entier " + nom + " entre 1 et 20 : ");
             if (lecteur.hasNextInt()) {
                 valeur = lecteur.nextInt();
             }
