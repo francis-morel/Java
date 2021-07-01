@@ -1,0 +1,65 @@
+# 1er  champ: nom
+# 2ème champ: titre
+# 3ème champ: catégorie (cadre, gestionnaire, professionnel, administratif, ouvrier
+# 4ème champ: affectation (nom de l'unité)
+# 5ème champ: facultatif: si le mot "responsable" est présent, alors l'employé en qyestion est le responsable de l'unité où il est affecté
+#Cadres
+Roger Bontemps;Président;cadre;Présidence;responsable
+Carl Price;Vice-président;cadre;Stratégie et planification;responsable
+Anna Picoli;Vice-présidente;cadre;Services administratifs;responsable
+France Castellini;Vice-présidente;cadre;Ventes;responsable
+Armand Frappier;Vice-président;cadre;Production;responsable
+Martine Ouellet;Vice-présidente;cadre;Gestion des stocks;responsable
+#Gestionnaires
+Sophie Labonté;Directrice;gestionnaire;Planification;responsable
+Vivianne Tremblay;Directrice;gestionnaire;Contrôle;responsable
+Vincent Lafortune;Directeur;gestionnaire;Finances;responsable
+Gilles Lafleur;Directeur;gestionnaire;Ressources humaines;responsable
+Rick Onslow;Directeur;gestionnaire;Marketing;responsable
+Ian Stewart;Directeur;gestionnaire;Force de vente;responsable
+Igor Poutine;Directeur;gestionnaire;Fabrication;responsable
+Clementine Wolfe;Directrice;gestionnaire;Contrôle de qualité;responsable
+Manuel Esposito;Directeur;gestionnaire;Inventaire;responsable
+Mario Sauvé;Directeur;gestionnaire;Approvisionnement;responsable
+#Professionnel
+Kevin Parent;Conseiller spécial;professionnel;Présidence
+Mick Taylor;Conseiller spécial;professionnel;Présidence
+Claude Lafortune;Conseiller;professionnel;Stratégie et planification
+Sébastien Pineau;Conseiller;professionnel;Stratégie et planification
+Johanne Bruneau;Comptable;professionnel;Services administratifs
+Lucie Labrosse;Comptable agréée;professionnel;Finances
+Marcel Rimbeault;Conseiller en ressources humaines;professionnel;Ressources humaines
+Keith Page;Psychologue;professionnel;Marketing
+Rémi Larousse;Avocat;professionnel;Force de vente
+Charles Proust;Ingénieur;professionnel;Fabrication
+Alice Simenon;Ingénieur;professionnel;Fabrication
+Vincent Brodeux;Ingénieur;profesionnel;Contrôle de qualité
+Mohamed Ali;Spécialiste en recherche opérationnelle;professionnel;Inventaire
+Michael Spagnolo;Comptable;Professionnel;Approvisionnement
+#Administratif
+Guy Gagne;Secrétaire;administratif;Présidence
+Charlotte Houle;Secrétaire;administratif;Stratégie et planification
+Elisabeth King;Secrétaire;administratif;Services administratifs
+Georgette Georges;Secrétaire;administratif;Ventes
+Lyne Robitaille;Adjointe administrative;administratif;Production
+Annie Lavoie;Secrétaire;administratif;Gestion des stocks
+Alain Federer;Secrétaire;administratif;Planification
+Lisette Paradis;Secrétaire;administratif;Contrôle
+Diane Laforêt;Adjointe administrative;administratif;Finances
+Lise Ouellette;Secrétaire;administratif;Ressources humaines
+Frédérique Houle;Secrétaire;administratif;Marketing
+Diane Maheu;Secrétaire;administratif;Force de vente
+François Guérin;Secrétaire;administratif;Fabrication
+Serge Sauvé;Secrétaire;administratif;Contrôle de qualité
+Ikbal Bergeron;Secrétaire;administratif;Approvisionnement
+Yves Bouton;Secrétaire;administratif;Inventaire
+Jean-François Bélanger;Commis;administratif;Finances
+#Ouvriers
+Esnesto Vince;Plombier;ouvrier;Fabrication
+Fernand Larivée;Electricien;ouvrier;Fabrication
+Gilles Gravel;Mécanicien;ouvrier;Fabrication
+Suzanne Morin;Electricienne;ouvrier;Fabrication
+Mario Bross;Plombier;ouvrier;Contrôle de qualité
+Jean-Paul Huss;Mécanicien;ouvrier;Contrôle de qualité
+
+

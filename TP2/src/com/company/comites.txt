@@ -1,0 +1,21 @@
+# 1er  champ: numero de l'unité
+# 2ème champ: nom du comité
+# 3ème champ et suivants: nom des employés membres
+1000;Comité de direction;Roger Bontemps;Carl Price;Anna Picoli;France Castellini;Armand Frappier;Martine Ouellet;Kevin Parent
+2000;Comité de gestion;Carl Price;Sophie Labonté;Vivianne Tremblay;Claude Lafortune
+3000;Comité de gestion;Anna Picoli;Vincent Lafortune;Gilles Lafleur;Johanne Bruneau
+4000;Comité de gestion;France Castellini;Rick Onslow;Ian Stewart
+5000;Comité de gestion;Armand Frappier;Igor Poutine;Clementine Wolfe;Charles Proust;Alice Simenon
+6000;Comité de gestion;Martine Ouellet;Manuel Esposito;Mario Sauvé;Michael Spagnolo
+2100;Comité de gestion;Sophie Labonté;Mick Taylor
+2200;Comité de gestion;Vivianne Tremblay;Mick Taylor
+3100;Comité de gestion;Vincent Lafortune;Lucie Labrosse
+3200;Comité de gestion;Gilles Lafleur;Marcel Rimbeault
+4100;Comité de gestion;Rick Onslow;Keith Page
+4200;Comité de gestion;Ian Stewart;Rémi Larousse
+5100;Comité de gestion;Igor Poutine;Charles Proust;Alice Simenon
+5200;Comité de gestion;Clementine Wolfe;Charles Proust;Alice Simenon
+6100;Comité de gestion;Manuel Esposito;Mohamed Ali
+6200;Comité de gestion;Mario Sauvé;Michael Spagnolo
+
+

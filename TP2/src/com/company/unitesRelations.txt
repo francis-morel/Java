@@ -1,0 +1,19 @@
+# 1er  champ: nom de l'unité
+# 2ème champ: unité parent
+# 3ème champ et subséquents: unités qui relevantes
+Présidence;;Stratégie et planification;Services administratifs;Ventes;Production;Gestion des stocks
+Stratégie et planification;Présidence;Planification;Contrôle
+Services administratifs;Présidence;Finances;Ressources humaines
+Ventes;Présidence;Marketing;Force de vente
+Production;Présidence;Fabrication;Contrôle de qualité
+Gestion des stocks;Présidence;Inventaire;Approvisionnement
+Planification;Stratégie et planification
+Contrôle;Stratégie et planification
+Finances;Services administratifs
+Ressources humaines;Services administratifs
+Marketing;Ventes
+Force de vente;Ventes
+Fabrication;Production
+Contrôle de qualité;Production
+Inventaire;Gestion des stocks
+Approvisionnement;Gestion des stocks
