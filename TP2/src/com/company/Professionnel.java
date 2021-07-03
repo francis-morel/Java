@@ -1,2 +1,4 @@
-package com.company;public class Professionnel {
+package com.company;
+
+public class Professionnel extends Employe{
 }

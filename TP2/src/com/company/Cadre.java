@@ -1,2 +1,4 @@
-package com.company;public class Cadre {
+package com.company;
+
+public class Cadre extends Employe{
 }
