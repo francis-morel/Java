@@ -1,0 +1,19 @@
+# 1er champ:  numéro de l'unité
+# 2ème champ: type d'unité (presidence, vice-presidence, direction)
+# 3ème champ: nom de l'unité
+1000;presidence;Présidence
+2000;vice-presidence;Stratégie et planification
+3000;vice-presidence;Services administratifs
+4000;vice-presidence;Ventes
+5000;vice-presidence;Production
+6000;vice-presidence;Gestion des stocks
+2100;direction;Planification
+2200;direction;Contrôle;
+3100;direction;Finances
+3200;direction;Ressources humaines
+4100;direction;Marketing
+4200;direction;Force de vente
+5100;direction;Fabrication
+5200;direction;Contrôle de qualité
+6100;direction;Inventaire
+6200;direction;Approvisionnement
