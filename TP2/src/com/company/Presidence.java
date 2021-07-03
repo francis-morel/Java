@@ -6,6 +6,9 @@ public class Presidence extends Unite{
     ArrayList<Unite> listeUnites;
 
     Presidence(){
+
+    Presidence(int num, String nom, Employe responsable, Comite comite){
+        super(num, nom, responsable, comite);
         this.listeUnites = new ArrayList<>();
     }
 }

@@ -1,0 +1,264 @@
+Contexte
+Le contexte est celui d’une entreprise de taille moyenne qui possède de multiples départements, de
+multiples employés et de multiples métiers. Votre programme consistera à représenter cette
+organisation et ses employés, et à permettre à un utilisateur d’interroger cet organigramme.
+L’organisation
+Comme c’est une entreprise qui compte quelques centaines d’employés, elle est structurée de la façon
+suivante :
+• Niveau 1 : la présidence (l’entreprise)
+◦ Niveau 2 : les vice-présidences
+• Niveau 3: les directions.
+1000 - Présidence (Entreprise)
+2000 - Stratégie et planification
+2100 - Planification
+2200 - Contrôle
+3000 - Services administratifs
+3100 - Finances
+3200 - Ressources humaines
+4000 - Ventes
+4100 - Marketing
+4200 - Force de vente
+5000 - Production
+5100 - Fabrication
+5200 - Contrôle de qualité
+6000 - Gestion des stocks
+6100 - Inventaire
+6200 - Approvisionnement
+Tous les niveaux sont organisés de la même façon :
+• un gestionnaire responsable
+• des relevants gestionnaires (niveaux 1 et 2)
+• du personnel clérical
+• des professionnels
+• des gens de métier (dans le département de production).
+A noter :
+• au niveau de l’entreprise, le responsable est le président et les gestionnaires sous sa
+responsabilité sont des vice-présidents
+• au niveau de la vice-présidence, le responsable a le titre de vice-président et a des gestionnaires
+sous sa responsabilité (directeurs)
+• au niveau de la direction, le responsable a le titre de directeur et n’a pas de gestionnaires sous sa
+responsabilité;
+• tous les niveaux ont un comité de gestion; au niveau 1 (présidence/entreprise), ce comité porte
+le nom de comité de direction; dans les deux autres niveaux, le comité porte le nom de comité
+de gestion.
+Les employés
+L’entreprise compte quelques centaines d’employés. Tous les employés sont caractérisés par les
+informations suivantes, quelque soit son niveau (du président au préposé à l’entretien) :
+• Numéro d’employé
+• Nom
+• Titre (titre du poste occupé par l’employé : ex : Vice-président, Directeur, Ingénieur, Préposé à
+l’entretien, Mécanicien, etc)
+• Catégorie du poste : cadre, gestionnaire, professionnel, administratif, ouvrier
+• Affectation (l’unité dans laquelle il travaille)
+• Salaire annuel.
+Catégories du poste
+Les différents postent de l’entreprise son regroupés dans quatre catégories :
+• le personnel cadre :
+◦ comprend le président et les vices-présidents;
+• les gestionnaires :
+◦ comprend les directeurs;
+• Les professionnels :
+◦ comprend les employés régis par un ordre professionnel : comptables, ingénieurs, actuaires,
+etc.
+• Le personnel administratif :
+◦ comprend les employés de bureau comme les secrétaires, les commis, techniciens
+administratifs, etc.
+• Les ouvriers :
+◦ comprend les gens de métier qui travaillent dans l’usine comme les électriciens,
+mécaniciens, etc.
+A faire
+Votre travail consiste à:
+1. Implanter le modèle objet:
+◦ il s’agit de définir les classes qui vous permettront de représenter la structure
+organisationnelle de l’entreprise , ses employés et son fonctionnement (catégories d’emploi,
+etc);
+◦ à créer, à l’intérieur de ces classes, les constructeurs et les méthodes qui vous permettront
+« d’opérer Le modèle : les classes à implanter» ce modèle.
+(Note : voir la section Le modèle : les classes à implanter pour obtenir les détails concernant ces
+classes.)
+
+================================================================
+
+2. « Populer » le modèle en question :
+Les données à charger dans votre modèle ainsi que les méthodes pour le faire sont fournies.
+Vous devrez par conséquent :
+• copier dans le répertoire racine de votre projet (Idea/IntelliJ) les fichiers suivants :
+◦ unites.txt : contient la définition des unités;
+◦ unitesRelations.txt : contient la définition des liens entre les unités;
+◦ employes.txt : contient la définition des employés;
+◦ comités.txt : contient la définition des comités.
+◦ ATTENTION : ces fichiers correspondent à des format très stricts. Si vous les éditez
+(pour ajouter des données par exemple), vous devrez respecter A LA LETTRE leur
+format.
+• Créer une classe Utils dans votre projet et importer le contenu de la classe qui vous est
+fournie.
+• Dans votre classe Main, avoir défini deux ArrayList, une pour les employés et une pour
+les unités.
+• Dans votre méthode main() :
+◦ 1) populer les unités en utilisant la méthode Utils.creerUnites(). Cette méthode
+retourne un ArrayList<Unite>. Exemple :
+▪ unites = Utils.creerUnites();
+◦ 2) créer les liens entre les unités avec la méthode Utils.creerRelationsUnites() Cette
+méthode ne retourne rien mais prend en paramèrte la liste des unités (créée
+précédemment). Exemple :
+▪ Utils.creerRelationsUnites(unites);
+◦ 3) populer les employés en utilisant la méthode Utils.creerEmployes(). Cette
+méthode prend en paramètre votre liste d’unités et retourne un ArrayList<Employe>.
+Exemple :
+▪ employes = Utils.creerEmployes(unites);
+◦ 4) populer les comités de gestion en utilisant la méthode Utils.creerComites(). Cette
+méthode prend en paramètre la liste des unités et la liste des employés, et ne retourne
+rien. Exemple :
+▪ Utils.creerComites(unites, employes);
+◦ ATTENTION : ces méthodes doivent être appelées dans cet ordre, sans quoi elles ne
+fonctionneront pas.
+A noter que la classe Utils qui vous est fournie comprend aussi les méthodes suivantes :
+• public static Unite getUniteParNom(ArrayList<Unite> unites, String nomUnite){}
+• public static Unite getUniteParNum(ArrayList<Unite> unites, int num){}
+• public static Unite getEmployeParNom(ArrayList<Employe> employes, String nom){}
+
+====================================================================
+
+3. Développer les fonctionnalités suivantes pour l’utilisateur de votre programme :
+◦ L’utilisateur se voir présenter un menu à partir duquel il peut choisir les fonctionnalités du
+programme, de façon itérative, jusqu’à ce qu’il décide d’y mettre fin.
+1. Interroger l’organigramme :
+1. Lister les unités de l’entreprise : numéro, nom, responsable
+2. Lister les unités qui relèvent d’une unité :
+▪ demander le numéro de l’unité
+▪ lister les unités qui relèvent d’elle : numéro, nom, responsable
+3. Lister toutes les unités d’un niveau/type donné :
+▪ demander le niveau (présidence, vice-présidence ou direction)
+▪ lister les unités de ce type : numéro, nom, responsable
+4. Rechercher une unité :
+1. par nom :
+◦ demander le nom de l’unité (peut être partiel, c’est-à-dire ne correspondre qu’à
+une partie du nom)
+◦ lister le numéro, le nom et le responsable de l’unité.
+• par responsable
+◦ demander le nom du responsable (peut être partiel, c’est-à-dire ne correspondre
+qu’à une partie du nom)
+◦ lister le numéro, le nom et le responsable de l’unité.
+5. Lister les comités de gestion
+• lister le numéro et le nom de l’unité ainsi que le nom des membres du comité.
+2. Interroger les employés :
+1. Lister les employés de l’entreprise : numéro, nom, titre, affectation
+2. Lister les employés d’une unité en particulier :
+• demander le numéro de l’unité
+• lister les employés de l’unité : numéro, nom, titre
+3. Lister les employés d’une unité en particulier ainsi que des unités qui relèvent de celleci :
+4. static ArrayList<Employe> employes = new ArrayList<>();
+5. static ArrayList<Unite> unites = new ArrayList<>();
+6.
+7. public static void main(String[] args) {
+8.
+9. unites = Utils.creerUnites();
+10. Utils.creerRelationsUnites(unites);
+11. employes = Utils.creerEmployes(unites);
+12. Utils.creerComites(unites, employes);
+13.
+• demander le numéro de l’unité
+• lister les employés de l’unité : numéro, nom, titre, affectation
+14. Lister les employés d’une catégorie de poste : cadre, gestionnaire, professionnel,
+administratif, ouvriers
+• demander la catégorie d’emploi
+• lister les employés de l’unité : numéro, nom, titre, affectation.
+15. Rechercher un employé :
+• par nom :
+◦ demander le nom de l’employé (peut être partiel, c’est-à-dire ne correspondre
+qu’à une partie du nom)
+◦ lister le numéro, le nom, le titre et l’affectation de l’employé.
+• par numéro :
+◦ demander le numéro de l’employé
+◦ lister le numéro, le nom, le titre et l’affectation de l’employé.
+
+==========================================================================
+
+Le modèle : les classes à implanter
+
++Classe Unite
+    • Cette classe sert à définir un regroupement d’employés, quelque soit le niveau de l’unité en
+    question (entreprise, vice-présidence, direction). Une unité correspond à une entité de
+    l’organigramme de l’entreprise.
+    • Classe abstraite;
+    • Attributs:
+    ◦ num (numéro de l’unité; entier)
+    ◦ nom (string)
+    ◦ responsable (type Employe)
+    ◦ employes (ArrayList des employés de l’unité)
+    ◦ comite (type Comite)
+    +Classe Presidence
+    • Cette classe représente l’unité de niveau 1, c’est-à-dire celle à la tête de l’organigramme.
+    • hérite de la classe Unite
+    • Attributs :
+    ◦ listeUnités (ArrayList des unités sous la présidence)
+
++Classe Vice-présidence
+    • Cette classe représente l’unité de niveau 2 de l’organigramme.
+    • hérite de la classe Unite
+    • Attributs :
+    ◦ listeUnités (ArrayList des unités sous la présidence)
+    ◦ parent (unité « parent » dont relève l’unité)
+
++Classe Direction
+    • Cette classe représente l’unité de niveau 3 de l’organigramme.
+    • hérite de la classe Unite
+    • Attributs :
+    ◦ parent (unité « parent » dont relève l’unité)
+
++Classe Employe
+    • Cette classe représente un employé de l’entreprise, quel que soit sa catégorie.
+    • Classe abstraite;
+    • Attributs :
+    ◦ num (numéro d’employé; entier)
+    ◦ nom (String)
+    ◦ titre (String; représente le titre du poste occupé par l’employé : ex : Vice-président,
+    Directeur, Ingénieur, Préposé à l’entretien, Mécanicien, etc)
+    ◦ affectation (type Unite : unité dans laquelle il travaille)
+    ◦ salaire (type double; salaire annuel)
+    • Attribut de classe :
+    ◦ numEmp (entier initialisé à 101 et qui est incrémenté à chaque création d’un nouvel
+    employé; le 1er employé aura le numéro 101, le 2ème 102, etc.)
+    Classe Cadre
+    • Cette classe sert à représenter les employés ayant un statut de gestionnaire.
+    hérite de la classe Employe
+
++Classe Gestionnaire
+    • Cette classe sert à représenter les employés ayant un statut de gestionnaire.
+    • hérite de la classe Employe
+    Classe Professionnel
+    • Cette classe sert à représenter les employés ayant un statut de gestionnaire.
+    • hérite de la classe Employe
+    •
++Classe Administratif
+    • Cette classe sert à représenter les employés ayant un statut de gestionnaire.
+    • hérite de la classe Employe
+    •
+
++Classe Ouvrier
+    • Cette classe sert à représenter les employés ayant un statut de gestionnaire.
+    • hérite de la classe Employe
+
++Classe Comite
+    • Cette classe sert à représenter le comité de gestion de l’unité.
+    • Attributs :
+    ◦ nom (String)
+    ◦ membres (ArrayList contenant les employés faisant partie du comité).
+
+A noter :
+    • Toutes les classes qui ont des attributs de type ArrayList<> doivent avoir une méthode pour
+    ajouter un élément à la liste. Cette méthode aura pour nom ajouter<type-élément> et prendra à
+    paramètre l’élément à ajouter.
+    • Exemple :
+    ◦ La classe Presidence a un attribut correspondant à la liste des unités relevant d’elle :
+    ArrayList<Unite> listeUnites;
+    ◦ La méthode suivante doit permettre d’ajouter un élément à la liste :
+        public void ajouterUnite(Unite unite){
+        listeUnites.add(unite);
+        }
+
+======================================================================
+
+A remettre
+Vous devrez remettre un fichier zip comprenant :
+• Les fichiers java de votre package.
+L’échéance de remise est le 16 juillet à minuit.

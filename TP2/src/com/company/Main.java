@@ -1,8 +1,16 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Main {
+    static ArrayList<Unite> listeUnites;
+    static ArrayList<Employe> listeEmployes;
 
     public static void main(String[] args) {
-	// write your code here
+
+        listeUnites = Utils.creerUnites();
+        Utils.creerRelationsUnites(listeUnites);
+        listeEmployes = Utils.creerEmployes(listeUnites);
+        Utils.creerComites(listeUnites, listeEmployes);
     }
 }
