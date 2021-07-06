@@ -242,8 +242,8 @@ public class Utils {
         }
         if (trouve)
             unite = unites.get(idx);
-        else
-            System.out.println("***ATTENTION*** getUniteParNom retourne null avec: " + nomUnite);
+        else; //point-virgule pour pouvoir garder le else et ne pas avoir d'erreur
+            //System.out.println("***ATTENTION*** getUniteParNom retourne null avec: " + nomUnite);
         return unite;
     }
 
@@ -260,8 +260,8 @@ public class Utils {
         }
         if (trouve)
             unite = unites.get(idx);
-        else
-            System.out.println("***ATTENTION*** getUniteParNom retourne null avec numero: " + num);
+        else;//point-virgule pour pouvoir garder le else et ne pas avoir d'erreur
+            //System.out.println("***ATTENTION*** getUniteParNum retourne null avec numero: " + num);
         return unite;
     }
 
@@ -278,8 +278,8 @@ public class Utils {
         }
         if (trouve)
             employe = employes.get(idx);
-        else
-            System.out.println("***ATTENTION*** getEmployeParNom retourne null avec: " + nom);
+        else; //point-virgule pour pouvoir garder le else et ne pas avoir d'erreur
+            //System.out.println("***ATTENTION*** getEmployeParNom retourne null avec: " + nom);
         return employe;
     }
 }

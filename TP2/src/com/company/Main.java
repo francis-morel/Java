@@ -4,28 +4,29 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    static ArrayList<Unite> listeUnites;
-    static ArrayList<Employe> listeEmployes;
-    static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Unite> listeUnites; //Cette liste contiendra toutes les unités de l'entreprise
+    static ArrayList<Employe> listeEmployes; //Cette liste contiendra tous les employés de l'entreprise
+    static Scanner scanner = new Scanner(System.in); //Définition d'un Objet Scanner pour liste le clavier
 
     public static void main(String[] args) {
 
-        listeUnites = Utils.creerUnites();
-        Utils.creerRelationsUnites(listeUnites);
-        listeEmployes = Utils.creerEmployes(listeUnites);
-        Utils.creerComites(listeUnites, listeEmployes);
+        listeUnites = Utils.creerUnites(); //Création des unités
+        Utils.creerRelationsUnites(listeUnites); //Création des relations des unités
+        listeEmployes = Utils.creerEmployes(listeUnites); //Création des employés
+        Utils.creerComites(listeUnites, listeEmployes); //Création des comités
 
 
-        menuPrincipal();
+        menuPrincipal(); //Affichage du menu principal qui donnera ensuite accès aux fonctions du logiciel
 
-        scanner.close();
+        scanner.close(); //Fermeture du scanner proprement à la fin de l'execution du logiciel
     }
 
     /**
      * Fonction pour obtenir un Int de l'utilisateur avec une valeur Min et Max
+     *
      * @param message Le message à afficher avant de demander un Int
-     * @param min La valeur minimale que l'utilisateur peut entrer
-     * @param max La valeur maximale que l'utilisateur peut entrer
+     * @param min     La valeur minimale que l'utilisateur peut entrer
+     * @param max     La valeur maximale que l'utilisateur peut entrer
      * @return Retourn un Int validé dans la plage précisée
      */
     public static int demanderInt(String message, int min, int max) {
@@ -45,6 +46,7 @@ public class Main {
 
     /**
      * Fonction pour obtenir un Int de l'utilisateur
+     *
      * @param message Le message à afficher avant de demander un Int
      * @return Retourne un Int validé
      */
@@ -151,7 +153,7 @@ public class Main {
                     break;
 
                 case 3:
-                    //call function
+                    organigrammeListerUniteNiveau();
                     break;
 
                 case 4:
@@ -169,11 +171,14 @@ public class Main {
         }
     }
 
+    /**
+     * Fonction pour faire le traitement Interroger l'organigramme: 1.1. Lister les unités de l'entreprise
+     */
     private static void organigrammeListerUnites() {
         //Transfert des informations dans un array pour les passer à une fonction de formatage sous forme de tableau
         String[][] tableauAFormatter = new String[listeUnites.size()][3];
 
-        for(int i = 0; i < listeUnites.size(); i++){
+        for (int i = 0; i < listeUnites.size(); i++) {
             tableauAFormatter[i][0] = String.valueOf(listeUnites.get(i).getNum());
             tableauAFormatter[i][1] = listeUnites.get(i).getNom();
             tableauAFormatter[i][2] = listeUnites.get(i).getResponsable().getNom();
@@ -182,34 +187,102 @@ public class Main {
         System.out.println(array2dToString(enTete, tableauAFormatter));
     }
 
-    private static void organigrammeListerUniteReleveUnite(){
+    /**
+     * Fonction pour faire le traitement Interroger l'organigramme: 1.2. Lister les unités qui relèvent d'une unité
+     */
+    private static void organigrammeListerUniteReleveUnite() {
         System.out.println("Voici la liste des numéros des unités ayant des sous-unités: ");
         String numerosUnites = "";
-        for(Unite unite : listeUnites){
-            if(unite.getListeUnites() != null) {
+
+        //Cette boucle sert à récupérer les numéros d'unités avec des sous-unités pour les afficher dans les choix.
+        for (Unite unite : listeUnites) {
+            if (unite.getListeUnites() != null) {
                 numerosUnites += String.valueOf(unite.getNum()) + " ";
             }
         }
+        //Affichage des numéros d'unités valides
         System.out.println(numerosUnites);
 
-        //*********************LA VALIDATION DES ENTRÉES N'EST PAS FAITE***********************************************
+        //Demander à l'utilisateur d'entrer un numéro d'unité à afficher les sous-unités
         int numeroUnite = demanderInt("Veuillez entrer un numéro d'unité");
         Unite unite = Utils.getUniteParNum(listeUnites, numeroUnite);
 
-        if(unite != null) {
+
+        if (unite != null) { //Traitement si l'unité existe
             ArrayList<Unite> sousUnite = unite.getListeUnites();
-            if (sousUnite != null) {
+            if (sousUnite != null) { //Traitement si cette unité possède une sous unité
                 String[] enTete = {"Numéro", "Nom", "Responsable"};
                 String[][] tableauSousUnite = new String[sousUnite.size()][3];
 
-                for(int i = 0; i < sousUnite.size(); i++){
+                //Copie des valeurs dans un tableau 2D pour l'envoyer à une fonction de formatage
+                for (int i = 0; i < sousUnite.size(); i++) {
                     tableauSousUnite[i][0] = String.valueOf(sousUnite.get(i).getNum());
                     tableauSousUnite[i][1] = sousUnite.get(i).getNom();
                     tableauSousUnite[i][2] = sousUnite.get(i).getResponsable().getNom();
                 }
                 System.out.println(array2dToString(enTete, tableauSousUnite));
+            } else { //Gestion du cas où l'unité n'a pas de sous-unités
+                System.out.println("Cette unité n'a pas de sous-unité");
             }
+        } else { //Gestion du cas où l'unité entré par l'utilisater n'existe pas
+            System.out.println("Cette unité n'existe pas");
         }
+    }
+
+    /**
+     * Fonction pour faire le traitement Interroger l'organigramme: 1.3. Lister toutes les unités d'un niveau/type
+     */
+    private static void organigrammeListerUniteNiveau() {
+        final int MENU_MIN = 0;
+        final int MENU_MAX = 3;
+        int choix;
+
+        ArrayList<Unite> listeUnitesTraitement = new ArrayList<>();
+
+        System.out.println("Veuillez choisir le type d'unité que vous voulez afficher:");
+        System.out.println("\t0. Retour");
+        System.out.println("\t1. Présidence");
+        System.out.println("\t2. Vice-Présidence");
+        System.out.println("\t3. Direction");
+
+        choix = demanderInt("Votre choix", MENU_MIN, MENU_MAX);
+
+        //Faire une nouvelle liste avec seulement les unites que l'utilisateur veut afficher
+        if (choix > 0) { //Si l'utilisateur décide d'annuler la fonction, ne pas faire de traitement
+            for (Unite uniteTraitement : listeUnites) {
+                switch (choix) {
+                    case 1:
+                        if (uniteTraitement instanceof Presidence)
+                            listeUnitesTraitement.add(uniteTraitement);
+                        break;
+
+                    case 2:
+                        if (uniteTraitement instanceof VicePresidence)
+                            listeUnitesTraitement.add(uniteTraitement);
+                        break;
+
+                    case 3:
+                        if (uniteTraitement instanceof Direction)
+                            listeUnitesTraitement.add(uniteTraitement);
+                        break;
+                } //Fin du switch
+            } //Fin du for
+
+
+            //Initialisation de l'en-tête du tableau
+            String[] enTete = {"Numéro", "Nom", "Responsable"};
+            String[][] tableauSousUnite = new String[listeUnitesTraitement.size()][3];
+
+            //Copie des valeurs dans un tableau 2D pour l'envoyer à une fonction de formatage
+            for (int i = 0; i < listeUnitesTraitement.size(); i++) {
+                tableauSousUnite[i][0] = String.valueOf(listeUnitesTraitement.get(i).getNum());
+                tableauSousUnite[i][1] = listeUnitesTraitement.get(i).getNom();
+                tableauSousUnite[i][2] = listeUnitesTraitement.get(i).getResponsable().getNom();
+            }
+            System.out.println(array2dToString(enTete, tableauSousUnite));
+
+        } //Fin du if
+
     }
 
 
@@ -270,15 +343,16 @@ public class Main {
 
     /**
      * Fonction pour rajouter des espaces devant une chaîne de caractère pour qu'elle ait une longueur minimale
+     *
      * @param string La chaîne de caractère à ajuster
-     * @param len La longueur minimal que la chaîne de caractère doit avoir à la fin de la fonction
-     * @param ch Le caractère pour remplir les espaces manquants à gauche de la chaîne
+     * @param len    La longueur minimal que la chaîne de caractère doit avoir à la fin de la fonction
+     * @param ch     Le caractère pour remplir les espaces manquants à gauche de la chaîne
      * @return Retourne un String contenant la chaîne de caractère avec les caractères rajoutés au début
      */
-    public static String stringFormatLeftPad(String string, int len, char ch){
+    public static String stringFormatLeftPad(String string, int len, char ch) {
         String sortie = string;
 
-        while(sortie.length() < len){
+        while (sortie.length() < len) {
             sortie = ch + sortie;
         }
         return sortie;
@@ -286,15 +360,16 @@ public class Main {
 
     /**
      * Fonction pour rajouter des espaces après une chaîne de caractère pour qu'elle ait une longueur minimale
+     *
      * @param string La chaîne de caractère à ajuster
-     * @param len La longueur minimal que la chaîne de caractère doit avoir à la fin de la fonction
-     * @param ch Le caractère pour remplir les espaces manquants à droite de la chaîne
+     * @param len    La longueur minimal que la chaîne de caractère doit avoir à la fin de la fonction
+     * @param ch     Le caractère pour remplir les espaces manquants à droite de la chaîne
      * @return Retourne un String contenant la chaîne de caractère avec les caractères rajoutés à la fin
      */
-    public static String stringFormatRightPad(String string, int len, char ch){
+    public static String stringFormatRightPad(String string, int len, char ch) {
         String sortie = string;
 
-        while(sortie.length() < len){
+        while (sortie.length() < len) {
             sortie += ch;
         }
         return sortie;
@@ -303,30 +378,31 @@ public class Main {
 
     /**
      * Fonction seulement pour faire le formatage en beau tableau pour l'affichage
-     * @param enTete Un array contenant l'en-tête du tableau et doit avoir la même longueur que la quantité de colonnes que les données
+     *
+     * @param enTete  Un array contenant l'en-tête du tableau et doit avoir la même longueur que la quantité de colonnes que les données
      * @param tableau Un array deux dimensions contenant les données à formater
      * @return Renvoie un String prêt à afficher à la console
      */
-    public static String array2dToString(String[] enTete, String[][] tableau){
+    public static String array2dToString(String[] enTete, String[][] tableau) {
         int[] dimensionColumns = new int[tableau[0].length]; //Cette variable va contenir la longueur max de chaque colonne
         String sortie = "";
 
 
         //Code pour déterminer les longueurs de colonnes
-        for(int j = 0; j < dimensionColumns.length; j++){
-            for(int i = 0; i < tableau.length; i++){
-                if(dimensionColumns[j] < tableau[i][j].length()){
+        for (int j = 0; j < dimensionColumns.length; j++) {
+            for (int i = 0; i < tableau.length; i++) {
+                if (dimensionColumns[j] < tableau[i][j].length()) {
                     dimensionColumns[j] = tableau[i][j].length();
                 }
             }
         }
 
         //Vérification pour être certain que l'en-tête est de la même dimension que le tableau
-        if(enTete.length == dimensionColumns.length) {
+        if (enTete.length == dimensionColumns.length) {
             //formattage de l'en-tête du tableau
             for (int i = 0; i < enTete.length; i++) {
                 //mise à jour de la longueur des colonnes si l'en-tête est plus long que le contenu
-                if(dimensionColumns[i] < String.valueOf(enTete[i]).length()){
+                if (dimensionColumns[i] < String.valueOf(enTete[i]).length()) {
                     dimensionColumns[i] = String.valueOf(enTete[i]).length();
                 }
                 sortie += stringFormatRightPad(enTete[i], dimensionColumns[i] + 4, ' ');
@@ -341,8 +417,8 @@ public class Main {
         }
 
         //formattage du string selon les longueurs
-        for(int i = 0; i < tableau.length; i++){
-            for(int j = 0; j < tableau[i].length; j++){
+        for (int i = 0; i < tableau.length; i++) {
+            for (int j = 0; j < tableau[i].length; j++) {
                 sortie += stringFormatRightPad(tableau[i][j], dimensionColumns[j] + 4, ' ');
             }
             sortie += "\n";
