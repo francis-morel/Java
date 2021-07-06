@@ -2,7 +2,8 @@ package com.company;
 
 public class Administratif extends Employe{
 
-    Administratif(int num, String nom, String titre, double salaire){
-        super(num, nom, titre, salaire);
+    Administratif(String nom, String titre, Unite unite){
+        super(9, nom, titre, 9.25);
     }
+
 }

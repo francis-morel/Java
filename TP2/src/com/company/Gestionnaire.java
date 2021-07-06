@@ -1,11 +1,9 @@
 package com.company;
 
 public class Gestionnaire extends Employe{
-    Gestionnaire(){
-        super();
 
-    Gestionnaire(int num, String nom, String titre, double salaire){
-        super(num, nom, titre, salaire);
+    Gestionnaire(String nom, String titre, Unite unite){
+        super(6, nom, titre, 6.25);
 
     }
 }
