@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Utils {
 
@@ -246,6 +247,33 @@ public class Utils {
             //System.out.println("***ATTENTION*** getUniteParNom retourne null avec: " + nomUnite);
         return unite;
     }
+
+    public static ArrayList<Unite> getUniteParNomPartiel(ArrayList<Unite> unites, String nomUnite) {
+        int idx = 0;
+        ArrayList<Unite> listeUnites = new ArrayList<>();
+
+        while (idx < unites.size()) {
+            if (unites.get(idx).getNom().toLowerCase().contains(nomUnite.toLowerCase())) {
+                listeUnites.add(unites.get(idx));
+            }
+            idx++;
+        }
+        return listeUnites;
+    }
+
+    public static ArrayList<Unite> getUniteParNomResponsablePartiel(ArrayList<Unite> unites, String nomUnite) {
+        int idx = 0;
+        ArrayList<Unite> listeUnites = new ArrayList<>();
+
+        while (idx < unites.size()) {
+            if (unites.get(idx).getResponsable().getNom().toLowerCase().contains(nomUnite.toLowerCase())) {
+                listeUnites.add(unites.get(idx));
+            }
+            idx++;
+        }
+        return listeUnites;
+    }
+
 
     public static Unite getUniteParNum(ArrayList<Unite> unites, int num) {
         boolean trouve = false;

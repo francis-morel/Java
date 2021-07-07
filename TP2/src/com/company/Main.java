@@ -16,6 +16,7 @@ public class Main {
         Utils.creerComites(listeUnites, listeEmployes); //Création des comités
 
 
+
         menuPrincipal(); //Affichage du menu principal qui donnera ensuite accès aux fonctions du logiciel
 
         scanner.close(); //Fermeture du scanner proprement à la fin de l'execution du logiciel
@@ -157,11 +158,11 @@ public class Main {
                     break;
 
                 case 4:
-                    //call function
+                    organigrammeRechercheUnite();
                     break;
 
                 case 5:
-                    //call function
+                    organigrammeListerComites();//À programmer
                     break;
 
                 default:
@@ -171,8 +172,9 @@ public class Main {
         }
     }
 
+
     /**
-     * Fonction pour faire le traitement Interroger l'organigramme: 1.1. Lister les unités de l'entreprise
+     * Fonction pour Interroger l'organigramme: 1.1. Lister les unités de l'entreprise
      */
     private static void organigrammeListerUnites() {
         //Transfert des informations dans un array pour les passer à une fonction de formatage sous forme de tableau
@@ -188,7 +190,7 @@ public class Main {
     }
 
     /**
-     * Fonction pour faire le traitement Interroger l'organigramme: 1.2. Lister les unités qui relèvent d'une unité
+     * Fonction pour Interroger l'organigramme: 1.2. Lister les unités qui relèvent d'une unité
      */
     private static void organigrammeListerUniteReleveUnite() {
         System.out.println("Voici la liste des numéros des unités ayant des sous-unités: ");
@@ -230,7 +232,7 @@ public class Main {
     }
 
     /**
-     * Fonction pour faire le traitement Interroger l'organigramme: 1.3. Lister toutes les unités d'un niveau/type
+     * Fonction pour Interroger l'organigramme: 1.3. Lister toutes les unités d'un niveau/type
      */
     private static void organigrammeListerUniteNiveau() {
         final int MENU_MIN = 0;
@@ -285,6 +287,71 @@ public class Main {
 
     }
 
+    /**
+     * Fonction pour Interroger l'organigramme: 1.4. Rechercher une unité par nom d'unité ou par nom de responsable
+     */
+    private static void organigrammeRechercheUnite() {
+        final int MENU_MIN = 0;
+        final int MENU_MAX = 2;
+        int choix;
+        ArrayList<Unite> listeUnitesRecherche = null;
+
+        //Affichage du type de recherche
+        System.out.println("Recherche par:");
+        System.out.println("\t0. Retour");
+        System.out.println("\t1. Nom");
+        System.out.println("\t2. Responsable");
+
+        choix = demanderInt("Votre choix", MENU_MIN, MENU_MAX);
+
+        if (choix > 0) { //Ne pas executer le code si l'utilisateur désire revenir au menu précédent
+            if (choix == 1) { //Recherche par Nom
+                System.out.print("Veuillez entrer le nom à rechercher (laisser vide pour tout afficher): ");
+                String nomRecherche = scanner.nextLine();
+                listeUnitesRecherche = Utils.getUniteParNomPartiel(listeUnites, nomRecherche); //Populer la liste avec les résultats de recherche
+
+                if (listeUnitesRecherche.size() == 0) { //Affichage d'un message d'erreur si la recherche ne retourne aucun résultat
+                    System.out.println("Nom introuvable");
+                }
+
+            } else if (choix == 2) { //Recherche par Responsable
+                System.out.print("Veuillez entrer le nom du responsable à rechercher (laisser vide pour tout afficher): ");
+                String nomRecherche = scanner.nextLine();
+                listeUnitesRecherche = Utils.getUniteParNomResponsablePartiel(listeUnites, nomRecherche); //Populer la liste avec les résultats de recherche
+
+                if (listeUnitesRecherche.size() == 0) { //Affichage d'un message d'erreur si la recherche ne retourne aucun résultat
+                    System.out.println("Nom introuvable");
+                }
+            }
+
+            //Formatage et affichage des données
+            if (listeUnitesRecherche.size() > 0) {
+                //Initialisation de l'en-tête du tableau
+                String[] enTete = {"Numéro", "Nom", "Responsable"};
+                String[][] tableauSousUnite = new String[listeUnitesRecherche.size()][3];
+
+                //Copie des valeurs dans un tableau 2D pour l'envoyer à une fonction de formatage
+                for (int i = 0; i < listeUnitesRecherche.size(); i++) {
+                    tableauSousUnite[i][0] = String.valueOf(listeUnitesRecherche.get(i).getNum());
+                    tableauSousUnite[i][1] = listeUnitesRecherche.get(i).getNom();
+                    tableauSousUnite[i][2] = listeUnitesRecherche.get(i).getResponsable().getNom();
+                }
+                System.out.println(array2dToString(enTete, tableauSousUnite));
+            }
+        }
+
+    }
+
+    /**
+     * Fonction pour Interroger l'organigramme: 1.5. Lister tous les comités et leurs membres
+     */
+    private static void organigrammeListerComites() {
+        ArrayList<Comite> listeComites = new ArrayList<>();
+
+        //Faire une liste de tous les comités
+        //for()
+    }
+
 
     /**
      * Fonction pour afficher le menu Interroger les employés et appeler les fonctions de ce menu
@@ -315,7 +382,7 @@ public class Main {
 
             switch (choix) {
                 case 1:
-                    //call function
+                    employeListerEmploye();
                     break;
 
                 case 2:
@@ -342,6 +409,24 @@ public class Main {
     }
 
     /**
+     * Fonction pour interroger les employés 2.1. Lister les employés de l'entreprise
+     */
+    private static void employeListerEmploye(){
+        String[] enTete = {"Numéro", "Nom", "Titre", "Affectation"};
+        String[][] tableauEmployes = new String[listeEmployes.size()][4];
+
+        for(int i = 0; i < listeEmployes.size(); i++){
+            tableauEmployes[i][0] = String.valueOf(listeEmployes.get(i).getNum());
+            tableauEmployes[i][1] = listeEmployes.get(i).getNom();
+            tableauEmployes[i][2] = listeEmployes.get(i).getTitre();
+            tableauEmployes[i][3] = listeEmployes.get(i).getAffectation().getNom();
+        }
+
+        System.out.println(array2dToString(enTete, tableauEmployes));
+
+    }
+
+    /**
      * Fonction pour rajouter des espaces devant une chaîne de caractère pour qu'elle ait une longueur minimale
      *
      * @param string La chaîne de caractère à ajuster
@@ -351,9 +436,8 @@ public class Main {
      */
     public static String stringFormatLeftPad(String string, int len, char ch) {
         String sortie = string;
-
-        while (sortie.length() < len) {
-            sortie = ch + sortie;
+        if (string.length() < len) {
+            sortie = String.valueOf(ch).repeat(len - string.length()) + sortie;
         }
         return sortie;
     }
@@ -368,9 +452,8 @@ public class Main {
      */
     public static String stringFormatRightPad(String string, int len, char ch) {
         String sortie = string;
-
-        while (sortie.length() < len) {
-            sortie += ch;
+        if (string.length() < len) {
+            sortie += String.valueOf(ch).repeat(len - string.length());
         }
         return sortie;
     }
