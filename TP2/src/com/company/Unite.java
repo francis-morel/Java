@@ -48,4 +48,8 @@ public abstract class Unite {
         return null;
     }
 
+    public ArrayList<Employe> getEmployes(){
+        return this.employes;
+    }
+
 }
