@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -390,7 +391,7 @@ public class Main {
                     break;
 
                 case 3:
-                    //call function
+                    employeListerEmployeUniteReleve();
                     break;
 
                 case 4:
@@ -455,6 +456,46 @@ public class Main {
                     tableauEmployes[i][2] = employes.get(i).getTitre();
                 }
                 System.out.println(array2dToString(enTete, tableauEmployes));
+
+        } else { //Gestion du cas où l'unité entré par l'utilisater n'existe pas
+            System.out.println("Cette unité n'existe pas");
+        }
+    }
+
+    private static void employeListerEmployeUniteReleve(){
+        System.out.println("Voici la liste des numéros des unités: ");
+        String numerosUnites = "";
+
+        //Cette boucle sert à récupérer les numéros d'unités avec des sous-unités pour les afficher dans les choix.
+        for (Unite unite : listeUnites) {
+            numerosUnites += String.valueOf(unite.getNum()) + " ";
+        }
+        //Affichage des numéros d'unités valides
+        System.out.println(numerosUnites);
+
+        int numeroUnite = demanderInt("Veuillez entrer un numéro d'unité");
+        Unite unite = Utils.getUniteParNum(listeUnites, numeroUnite);
+
+        //Chercher toutes les unités qui ont l'unité choisi par l'utilisateur comme unitée parente
+        ArrayList<Unite> listeSousUnites = new ArrayList<>();
+
+        for(Unite iterUnite : unite.getListeUnites()){
+
+        }
+
+
+        if (unite != null) { //Traitement si l'unité existe
+            ArrayList<Employe> employes = unite.getEmployes();
+            String[] enTete = {"Numéro Unité", "Nom Unité", "Numéro Employe", "Nom Employe", "Titre Employe"};
+            String[][] tableauEmployes = new String[employes.size()][5];
+
+            //Copie des valeurs dans un tableau 2D pour l'envoyer à une fonction de formatage
+            for (int i = 0; i < employes.size(); i++) {
+                tableauEmployes[i][0] = String.valueOf(employes.get(i).getNum());
+                tableauEmployes[i][1] = employes.get(i).getNom();
+                tableauEmployes[i][2] = employes.get(i).getTitre();
+            }
+            System.out.println(array2dToString(enTete, tableauEmployes));
 
         } else { //Gestion du cas où l'unité entré par l'utilisater n'existe pas
             System.out.println("Cette unité n'existe pas");
